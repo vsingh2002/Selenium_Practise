@@ -11,9 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AutoSuggesting {
 	public static void main(String[] args) {
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.manage().window().maximize();
-
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		driver.findElement(By.id("autosuggest")).sendKeys("Ind");
 		List<WebElement> options = driver.findElements(By.xpath("//li[@class='ui-menu-item']"));
