@@ -15,12 +15,14 @@ public class HandlingCheckbox {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get("https://www.qa-practice.com/elements/checkbox/mult_checkbox");
-		System.out.println(driver.findElement(By.xpath("//input[@value='one']")).isSelected()); // Before Clicking
+		WebElement checkbox = driver.findElement(By.xpath("//input[@value='one']"));
+		System.out.println("Before Clicking :" + checkbox.isSelected());
 		driver.findElement(By.xpath("//input[@value='one']")).click();
-		System.out.println(driver.findElement(By.xpath("//input[@value='one']")).isSelected()); // After clicking
-		// Count number of checkbox present
-		List<WebElement> count = driver.findElements(By.xpath("//input[@name='checkboxes']"));
-		System.out.println("Number of checkbox present :" + count.size());
+		System.out.println("After clicking :" + checkbox.isSelected());
+		// Count number of checkboxes present
+		List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@name='checkboxes']"));
+		System.out.println("Number of Checkboxes present :" + checkboxes.size());
+		driver.quit();
 	}
 
 }
